@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudheer Rejeti - Portfolio</title>
+    <!-- Link to external icon library -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- CSS STYLES EMBEDDED -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* Universal Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Color and Font Variables */
+        :root {
+            --bg-color: #1f242d;
+            --second-bg-color: #323946;
+            --text-color: #fff;
+            --main-color: #0ef; /* A modern, techy cyan color */
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+
+        /* HEADER STYLES */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .navbar a {
+            font-size: 1.7rem;
+            color: var(--text-color);
+            margin-left: 4rem;
+            transition: .3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--main-color);
+        }
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+        }
+        
+        /* GENERAL STYLING */
+        .heading {
+            text-align: center;
+            font-size: 4.5rem;
+            margin-bottom: 3rem;
+        }
+
+        span {
+            color: var(--main-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.6rem;
+            color: var(--second-bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5s ease;
+        }
+
+        .btn:hover {
+            box-shadow: none;
+        }
+
+        /* HOME SECTION STYLES */
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .home-img img {
+            width: 35vw;
+            border-radius: 50%; /* Makes the image circular */
+            box-shadow: 0 0 2rem var(--main-color);
+            animation: floatImage 4s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-2.4rem); }
+            100% { transform: translateY(0); }
+        }
+
+        .home-content h3 { font-size: 3.2rem; font-weight: 700; }
+        .home-content h3:nth-of-type(2) { margin-bottom: 2rem; }
+        .home-content h1 { font-size: 5.6rem; font-weight: 700; line-height: 1.3; }
+        .home-content p { font-size: 1.6rem; }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: .2rem solid var(--main-color);
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--main-color);
+            margin: 3rem 1.5rem 3rem 0;
+            transition: .5s ease;
+        }
+
+        .social-media a:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        /* ABOUT SECTION STYLES */
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            background: var(--second-bg-color);
+        }
+
+        .about-img img {
+            width: 35vw;
+            border-radius: 1rem;
+        }
+
+        .about-content h2 { text-align: left; line-height: 1.2; }
+        .about-content h3 { font-size: 2.6rem; }
+        .about-content p { font-size: 1.6rem; margin: 2rem 0 3rem; }
+
+        /* SKILLS SECTION */
+        .skills {
+            background: var(--bg-color);
+        }
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .skills-box {
+            flex: 1 1 30rem;
+            background: var(--second-bg-color);
+            padding: 3rem 2rem 4rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: .2rem solid var(--bg-color);
+            transition: .5s ease;
+        }
+        .skills-box:hover {
+            border-color: var(--main-color);
+            transform: scale(1.02);
+        }
+        .skills-box i {
+            font-size: 7rem;
+            color: var(--main-color);
+        }
+        .skills-box h3 {
+            font-size: 2.6rem;
+            margin-top: 1rem;
+        }
+        .skills-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 3rem;
+        }
+        .skills-box ul li {
+            font-size: 1.6rem;
+            margin: 0.5rem 0;
+        }
+        
+        /* SHARED BOX STYLE FOR INTERNSHIPS, PROJECTS, ETC. */
+        .internship, .projects, .certifications, .achievements {
+            background: var(--second-bg-color);
+        }
+        .projects, .achievements {
+             background: var(--bg-color);
+        }
+        .content-box {
+            max-width: 80rem;
+            margin: 0 auto 3rem auto; /* Added bottom margin */
+            background: var(--bg-color);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            border-left: .5rem solid var(--main-color);
+        }
+        .projects .content-box, .achievements .content-box {
+             background: var(--second-bg-color);
+        }
+        .content-box h3 { font-size: 2.4rem; }
+        .content-box h4 {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            margin: 0.5rem 0;
+        }
+        .content-box p { font-size: 1.6rem; margin-bottom: 1.5rem; }
+        .content-box .date {
+            font-style: italic;
+            color: #ccc;
+        }
+        .content-box ul { padding-left: 2rem; }
+        .content-box ul li {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        .content-box .tools {
+            font-size: 1.6rem;
+            margin-top: 2rem;
+        }
+        .certifications-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            text-align: center;
+        }
+        .certifications-list p {
+            font-size: 1.8rem;
+        }
+
+
+        /* CONTACT SECTION STYLES */
+        .contact {
+            background: var(--second-bg-color);
+        }
+        .contact form {
+            max-width: 70rem;
+            margin: 1rem auto;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .contact form .input-box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .contact form .input-box input,
+        .contact form textarea {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            background: var(--bg-color);
+            border-radius: .8rem;
+            margin: .7rem 0;
+        }
+        .contact form .input-box input {
+            width: 49%;
+        }
+        .contact form textarea { resize: none; }
+        .contact form .btn { margin-top: 2rem; cursor: pointer; }
+
+        /* FOOTER STYLES */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+        }
+        .footer-text p { font-size: 1.6rem; }
+        .footer-iconTop a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem;
+            background: var(--main-color);
+            border-radius: .8rem;
+            transition: .5s ease;
+        }
+        .footer-iconTop a:hover { box-shadow: 0 0 1rem var(--main-color); }
+        .footer-iconTop a i { font-size: 2.4rem; color: var(--bg-color); }
+
+
+        /* BREAKPOINTS FOR RESPONSIVE DESIGN */
+        @media (max-width: 1200px) { html { font-size: 55%; } }
+        @media (max-width: 991px) {
+            .header, .footer, section { padding-right: 3%; padding-left: 3%; }
+        }
+        @media (max-width: 768px) {
+            #menu-icon { display: block; }
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 3%;
+                background: var(--bg-color);
+                border-top: .1rem solid rgba(0,0,0, .2);
+                box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
+                display: none;
+            }
+            .navbar.active { display: block; }
+            .navbar a { display: block; font-size: 2rem; margin: 3rem 0; }
+            .home { flex-direction: column; text-align: center; }
+            .home-content h1 { font-size: 5rem; }
+            .home-img img { width: 70vw; margin-top: 4rem; }
+            .about { flex-direction: column-reverse; text-align: center;}
+            .about-content h2 { text-align: center; }
+            .about-img img { width: 70vw; margin-top: 4rem; }
+        }
+        @media (max-width: 450px) {
+            html { font-size: 50%; }
+            .contact form .input-box input { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="#" class="logo">Sudheer Rejeti</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#internship">Internship</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Sudheer Rejeti</h1>
+            <h3>And I'm an <span class="multiple-text"></span></h3>
+            <p>Aspiring Electronics and Communication Engineer with a passion for web technologies and problem-solving.</p>
+            <div class="social-media">
+                <a href="https://linkedin.com/in/sudheer-rejeti" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/Sudhir070" target="_blank"><i class='bx bxl-github' ></i></a> 
+            </div>
+            <!-- This link will download your CV. Make sure the file name and path are correct. -->
+            <a href="Sudheer_Rejeti_CV.pdf" download class="btn">Download CV</a>
+        </div>
+        <div class="home-img">
+            <img src="https://i.postimg.cc/ydcx61x1/5f8d7edb-0f78-4c85-8575-e578ecf00030.jpg" alt="Sudheer Rejeti">
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://i.postimg.cc/ydcx61x1/5f8d7edb-0f78-4c85-8575-e578ecf00030.jpg" alt="Sudheer Rejeti">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Electronics & Communication Engineer</h3>
+            <p>I am a dedicated and motivated B.Tech student seeking a challenging position where I can contribute effectively, enhance my skills, and grow professionally. With a strong foundation in ECE and hands-on experience in web technologies, I thrive on solving complex problems. My background in competitive sports has taught me the value of teamwork, leadership, and perseverance.</p>
+            <a href="#contact" class="btn">Let's Talk</a>
+        </div>
+    </section>
+    
+    <!-- SKILLS SECTION -->
+    <section class="skills" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+        <div class="skills-container">
+            <div class="skills-box">
+                <i class='bx bx-code-alt'></i>
+                <h3>Languages & Web</h3>
+                <ul>
+                    <li>Python, Java (Basic)</li>
+                    <li>HTML, CSS, SQL</li>
+                </ul>
+            </div>
+            <div class="skills-box">
+                <i class='bx bx-cog'></i>
+                <h3>Tools & Software</h3>
+                <ul>
+                    <li>MATLAB, VS Code</li>
+                    <li>VLSI Design (VMware)</li>
+                    <li>ANYSIS(HFSS), Power BI, MS Office</li>
+                </ul>
+            </div>
+            <div class="skills-box">
+                <i class='bx bx-user-voice'></i>
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Communication</li>
+                    <li>Problem-Solving</li>
+                    <li>Adaptability & Teamwork</li>
+                    <li>Leadership (Sports)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERNSHIP SECTION -->
+    <section class="internship" id="internship">
+        <h2 class="heading">Internship <span>Experience</span></h2>
+        <div class="content-box">
+            <h3>BSNL - Optical Fiber Network in Telecom</h3>
+            <h4>On-site Internship</h4>
+            <p class="date">Feb 2025 - Mar 2025</p>
+            <ul>
+                <li>Gained hands-on exposure to optical fiber cable installation, splicing, and testing.</li>
+                <li>Learned signal transmission and routing techniques in real telecom networks.</li>
+                <li>Worked with switching systems and broadband network setups.</li>
+                <li>Understood fault detection and troubleshooting in live communication systems.</li>
+                <li>Collaborated with BSNL engineers to analyze network performance.</li>
+                <li>Acquired practical knowledge of telecom protocols and infrastructure.</li>
+            </ul>
+        </div>
+        <div class="content-box">
+            <h3>IBM Cloud Computing</h3>
+            <h4>AICTE Virtual Internship</h4>
+            <p class="date">July 2025 – August 2025</p>
+            <ul>
+                <li>Completed AICTE Virtual Internship in Cloud Computing with IBM.</li>
+                <li>Gained hands-on experience in IBM Cloud Lite Services, Watsonx.ai Studio, Granite Models, and IBM Cloud Functions.</li>
+                <li>Learned to integrate chatbot and AI models for real-time applications.</li>
+                <li>Acquired knowledge of AI career guidance systems, cloud deployment, and data storage solutions.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects" id="projects">
+        <h2 class="heading">My <span>Projects</span></h2>
+        <div class="content-box">
+            <h3>Career Counseling Companion – Agentic AI Project</h3>
+            <h4>Capstone Project</h4>
+            <ul>
+                <li>Developed an AI-powered career assistant that provides personalized career recommendations using IBM Granite models.</li>
+                <li>Implemented Watson Assistant chatbot interface for student career queries.</li>
+                <li>Used real-time labor market data to suggest in-demand career paths.</li>
+            </ul>
+            <p class="tools">
+                <strong>Tools & Tech:</strong> IBM Watsonx.ai Studio, Granite-3B Model, IBM Cloud Functions, Object Storage.
+            </p>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section class="certifications" id="certifications">
+        <h2 class="heading"><span>Certifications</span></h2>
+        <div class="content-box">
+            <div class="certifications-list">
+                <p>System Design Through Verilog - <strong>NPTEL</strong></p>
+                <p>Principles of Signals and Systems - <strong>NPTEL</strong></p>
+                <p>Web Design for Beginners: Build Websites in HTML & CSS - <strong>Udemy</strong></p>
+                <p>SQL - Basics (Standard)  - <strong>SkillRack</strong></p>
+                <p>Learning Python - <strong>Infosys Springboard (by Infosys)</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="achievements" id="achievements">
+        <h2 class="heading">Achievements & <span>Activities</span></h2>
+        <div class="content-box">
+            <ul>
+                <li>Represented in state and national level Softball and Baseball tournaments.</li>
+                <li>Demonstrated teamwork, leadership, and athletic excellence through sports.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Address">
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Mobile Number">
+                <input type="text" placeholder="Email Subject">
+            </div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2025 by Sudheer Rejeti | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+    <!-- EXTERNAL JAVASCRIPT LIBRARIES -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- YOUR CUSTOM JAVASCRIPT FILE -->
+    <script src="script.js"></script>
+</body>
+</html>
